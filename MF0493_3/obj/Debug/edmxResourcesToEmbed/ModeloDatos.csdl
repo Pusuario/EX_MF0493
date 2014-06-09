@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MF0493Model1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Empresa">
+    <Key>
+      <PropertyRef Name="nif" />
+    </Key>
+    <Property Name="nif" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="nombre" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ff" Type="DateTime" Precision="3" />
+    <Property Name="poblacion" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="telefono" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="logo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="activa" Type="Boolean" />
+    <Property Name="usr" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Usuario" Relationship="Self.FK_Empresas_Usuarios" FromRole="Empresas" ToRole="Usuarios" />
+  </EntityType>
+  <EntityType Name="Sectore">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Usuario">
+    <Key>
+      <PropertyRef Name="username" />
+    </Key>
+    <Property Name="username" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="passwd" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="activo" Type="Boolean" Nullable="false" />
+    <Property Name="lastlogin" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Empresas" Relationship="Self.FK_Empresas_Usuarios" FromRole="Usuarios" ToRole="Empresas" />
+  </EntityType>
+  <Association Name="FK_Empresas_Usuarios">
+    <End Role="Usuarios" Type="Self.Usuario" Multiplicity="0..1" />
+    <End Role="Empresas" Type="Self.Empresa" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuarios">
+        <PropertyRef Name="username" />
+      </Principal>
+      <Dependent Role="Empresas">
+        <PropertyRef Name="usr" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="MF0493Entities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Empresas" EntityType="Self.Empresa" />
+    <EntitySet Name="Sectores" EntityType="Self.Sectore" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="Usuarios" EntityType="Self.Usuario" />
+    <AssociationSet Name="FK_Empresas_Usuarios" Association="Self.FK_Empresas_Usuarios">
+      <End Role="Usuarios" EntitySet="Usuarios" />
+      <End Role="Empresas" EntitySet="Empresas" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

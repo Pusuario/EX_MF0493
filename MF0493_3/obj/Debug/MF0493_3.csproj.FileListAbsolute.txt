@@ -1,0 +1,11 @@
+C:\Users\desweb\Desktop\examen_final\MF0493_3\bin\MF0493_3.dll.config
+C:\Users\desweb\Desktop\examen_final\MF0493_3\bin\MF0493_3.dll
+C:\Users\desweb\Desktop\examen_final\MF0493_3\bin\MF0493_3.pdb
+C:\Users\desweb\Desktop\examen_final\MF0493_3\bin\EntityFramework.dll
+C:\Users\desweb\Desktop\examen_final\MF0493_3\bin\EntityFramework.SqlServer.dll
+C:\Users\desweb\Desktop\examen_final\MF0493_3\bin\EntityFramework.xml
+C:\Users\desweb\Desktop\examen_final\MF0493_3\bin\EntityFramework.SqlServer.xml
+C:\Users\desweb\Desktop\examen_final\MF0493_3\obj\Debug\MF0493_3.dll
+C:\Users\desweb\Desktop\examen_final\MF0493_3\obj\Debug\MF0493_3.pdb
+C:\Users\desweb\Desktop\examen_final\MF0493_3\obj\Debug\MF0493_3.csprojResolveAssemblyReference.cache
+C:\Users\desweb\Desktop\Nueva carpeta (4)\MF0493_3\obj\Debug\MF0493_3.csprojResolveAssemblyReference.cache

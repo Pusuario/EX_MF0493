@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MF0493Model1.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Empresas">
+    <Key>
+      <PropertyRef Name="nif" />
+    </Key>
+    <Property Name="nif" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="80" />
+    <Property Name="email" Type="varchar" MaxLength="100" />
+    <Property Name="ff" Type="datetime" />
+    <Property Name="poblacion" Type="varchar" MaxLength="30" />
+    <Property Name="telefono" Type="varchar" MaxLength="12" />
+    <Property Name="logo" Type="varchar" MaxLength="100" />
+    <Property Name="activa" Type="bit" />
+    <Property Name="usr" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="Sectores">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="Usuarios">
+    <Key>
+      <PropertyRef Name="username" />
+    </Key>
+    <Property Name="username" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="email" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="passwd" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="activo" Type="bit" Nullable="false" />
+    <Property Name="lastlogin" Type="datetime" />
+  </EntityType>
+  <Association Name="FK_Empresas_Usuarios">
+    <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="0..1" />
+    <End Role="Empresas" Type="Self.Empresas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuarios">
+        <PropertyRef Name="username" />
+      </Principal>
+      <Dependent Role="Empresas">
+        <PropertyRef Name="usr" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="MF0493Model1StoreContainer">
+    <EntitySet Name="Empresas" EntityType="Self.Empresas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Sectores" EntityType="Self.Sectores" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Usuarios" EntityType="Self.Usuarios" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Empresas_Usuarios" Association="Self.FK_Empresas_Usuarios">
+      <End Role="Usuarios" EntitySet="Usuarios" />
+      <End Role="Empresas" EntitySet="Empresas" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

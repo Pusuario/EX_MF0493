@@ -1,0 +1,7 @@
+C:\Users\desweb\Desktop\examen_final\PruebasUnitarias\bin\Debug\PruebasUnitarias.dll
+C:\Users\desweb\Desktop\examen_final\PruebasUnitarias\bin\Debug\PruebasUnitarias.pdb
+C:\Users\desweb\Desktop\examen_final\PruebasUnitarias\bin\Debug\Microsoft.QualityTools.Testing.Fakes.dll
+C:\Users\desweb\Desktop\examen_final\PruebasUnitarias\obj\Debug\PruebasUnitarias.csprojFakesResolveAssemblyReference.cache
+C:\Users\desweb\Desktop\examen_final\PruebasUnitarias\obj\Debug\PruebasUnitarias.dll
+C:\Users\desweb\Desktop\examen_final\PruebasUnitarias\obj\Debug\PruebasUnitarias.pdb
+C:\Users\desweb\Desktop\examen_final\PruebasUnitarias\obj\Debug\PruebasUnitarias.csprojResolveAssemblyReference.cache
